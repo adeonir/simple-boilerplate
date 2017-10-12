@@ -1,6 +1,6 @@
 # Simple Boilerplate
 
-This project is a simple boilerplate structure for generating static websites and uses ES6, Pug, Stylus, Gulp and Browsersync.
+This project is a simple boilerplate structure for generating static websites using ES6, Pug, Stylus, Gulp and Browsersync.
 
 ## Stack
 
