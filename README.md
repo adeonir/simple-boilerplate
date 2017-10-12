@@ -10,7 +10,7 @@ This project is a simple boilerplate structure for generating static websites an
 - JS Transpiler: [Babel](https://babeljs.io/)
 - Browser Testing [Browsersync](https://www.browsersync.io/)
 
-It uses [Jeet](http://jeet.gs/) for grid system, [Rupture](https://github.com/jenius/rupture) for responsive utilities, also uses ITCSS for the CSS architecture. RSCSS for the CSS structure is recommended.
+It uses [Jeet](http://jeet.gs/) for grid system, [Kouto Swiss](http://kouto-swiss.io/) for animations, reset and a lot of great mixins and [Rupture](https://github.com/jenius/rupture) for responsive utilities. Also uses ITCSS for the CSS architecture. RSCSS for the CSS structure is recommended.
 
 ## Getting Started
 
