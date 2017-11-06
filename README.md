@@ -36,7 +36,6 @@ Now you are ready to start.
 ├── src
 │   ├── assets
 │   │   ├── images
-│   │   │   └── simple.png
 │   │   │   └── favicon.png
 │   │   ├── scripts
 │   │   │   └── script.js
