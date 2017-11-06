@@ -104,9 +104,10 @@ gulp.task('clear', () => {
 })
 
 gulp.task('watch', () => {
-  gulp.watch(['./src/assets/styles/**/*.styl'], ['styles'])
-  gulp.watch(['./src/assets/scripts/**/*.js'], ['scripts'])
+  gulp.watch(['./src/assets/styles/**/*'], ['styles'])
+  gulp.watch(['./src/assets/scripts/**/*'], ['scripts'])
   gulp.watch(['./src/assets/images/**/*'], ['images'])
+  gulp.watch(['./src/assets/svg/**/*'], ['svg'])
   gulp.watch(['./src/**/*.pug'], ['pug'])
 })
 
