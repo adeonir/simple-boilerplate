@@ -35,21 +35,22 @@ Now you are ready to start.
 ├── dist
 ├── src
 │   ├── assets
-│   │   ├── icons
 │   │   ├── images
 │   │   │   └── simple.png
 │   │   │   └── favicon.png
 │   │   ├── scripts
 │   │   │   └── script.js
-│   │   └── styles
-│   │       ├── settings/*.styl
-│   │       ├── tools/*.styl
-│   │       ├── generic/*.styl
-│   │       ├── elements/*.styl
-│   │       ├── objects/*.styl
-│   │       ├── components/*.styl
-│   │       ├── trumps/*.styl
-│   │       └── style.styl
+│   │   ├── styles
+│   │   │   ├── settings/*.styl
+│   │   │   ├── tools/*.styl
+│   │   │   ├── generic/*.styl
+│   │   │   ├── elements/*.styl
+│   │   │   ├── objects/*.styl
+│   │   │   ├── components/*.styl
+│   │   │   ├── trumps/*.styl
+│   │   │   └── style.styl
+│   │   └── svg
+│   │   │   └── simple.svg
 │   ├── layouts
 │   │   ├── default.pug
 │   ├── partials
