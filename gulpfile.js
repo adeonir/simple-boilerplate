@@ -1,133 +1,90 @@
-// simple
-'use strict'
+const gulp = require('gulp');
+const plumber = require('gulp-plumber');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const cssnano = require('gulp-cssnano');
+const pug = require('gulp-pug');
+const babel = require('gulp-babel');
+const minify = require('gulp-terser');
+const imagemin = require('gulp-imagemin');
+const svgmin = require('gulp-svgmin');
+const browserSync = require('browser-sync');
+const del = require('del');
 
-const autoprefixer = require('autoprefixer-stylus')
-const babel = require('gulp-babel')
-const browserSync = require('browser-sync')
-const cssnano = require('gulp-cssnano')
-const del = require('del')
-const eslint = require('gulp-eslint')
-const ghPages = require('gulp-gh-pages')
-const gulp = require('gulp')
-const imagemin = require('gulp-imagemin')
-const jeet = require('jeet')
-const koutoSwiss = require('kouto-swiss')
-const plumber = require('gulp-plumber')
-const pug = require('gulp-pug')
-const puglint = require('gulp-pug-lint')
-const rupture = require('rupture')
-const stylint = require('gulp-stylint')
-const stylus = require('gulp-stylus')
-const svgmin = require('gulp-svgmin')
-const uglify = require('gulp-uglify')
+gulp.task('clear', () => del('dist'));
 
-const reload = browserSync.reload
-
-gulp.task('stylint', () => {
-  gulp.src('./src/assets/styles/*.styl')
-    .pipe(stylint())
-    .pipe(stylint.reporter())
-})
-
-gulp.task('styles', ['stylint'], () => {
-  gulp.src('./src/assets/styles/style.styl')
+gulp.task('styles', () =>
+  gulp
+    .src('./src/styles/**/*')
     .pipe(plumber())
-    .pipe(stylus({
-      use: [
-        koutoSwiss(),
-        jeet(),
-        rupture(),
-        autoprefixer({
-          browsers: ['last 2 versions']
-        })
-      ],
-      compress: true
-    }))
+    .pipe(sass())
+    .pipe(autoprefixer())
     .pipe(cssnano())
-    .pipe(gulp.dest('./dist/assets/css/'))
-    .pipe(reload({stream: true}))
-})
+    .pipe(gulp.dest('dist/css'))
+    .pipe(browserSync.stream())
+);
 
-gulp.task('puglint', () => {
+gulp.task('scripts', () =>
   gulp
-    .src('./src/**/*.pug')
-    .pipe(puglint())
-})
+    .src('./src/scripts/**/*')
+    .pipe(plumber())
+    .pipe(babel())
+    .pipe(minify())
+    .pipe(gulp.dest('dist/js'))
+    .pipe(browserSync.stream())
+);
 
-gulp.task('pug', ['puglint'], () => {
+gulp.task('images', () =>
   gulp
-    .src('./src/*.pug')
+    .src('./src/images/**/*')
+    .pipe(plumber())
+    .pipe(imagemin())
+    .pipe(gulp.dest('dist/img'))
+    .pipe(browserSync.stream())
+);
+
+gulp.task('vectors', () =>
+  gulp
+    .src('./src/vectors/**/*')
+    .pipe(svgmin())
+    .pipe(gulp.dest('./dist/svg/'))
+);
+
+gulp.task('pages', () =>
+  gulp
+    .src('./src/pages/*.pug')
     .pipe(plumber())
     .pipe(pug())
-    .pipe(gulp.dest('./dist/'))
-    .pipe(reload({stream: true}))
-})
+    .pipe(gulp.dest('dist'))
+    .pipe(browserSync.stream())
+);
 
-gulp.task('eslint', () => {
-  gulp.src('./src/assets/scripts/**/.js')
-    .pipe(eslint())
-    .pipe(eslint.format())
-})
-
-gulp.task('scripts', ['eslint'], () => {
-  gulp.src('./src/assets/scripts/*.js')
-    .pipe(plumber())
-    .pipe(babel({
-      presets: ['env']
-    }))
-    .pipe(uglify())
-    .pipe(gulp.dest('./dist/assets/js/'))
-    .pipe(reload({stream: true}))
-})
-
-gulp.task('images', () => {
-  gulp.src('./src/assets/images/**/*')
-    .pipe(plumber())
-    .pipe(imagemin({
-      optimizationLevel: 3,
-      progressive: true,
-      interlaced: true
-    }))
-    .pipe(gulp.dest('./dist/assets/img/'))
-    .pipe(reload({stream: true}))
-})
-
-gulp.task('svg', () => {
-  gulp.src('./src/assets/svg/**/*')
-    .pipe(svgmin())
-    .pipe(gulp.dest('./dist/assets/svg/'))
-    .pipe(reload({stream: true}))
-})
-
-gulp.task('clear', () => {
-  return del('./dist/**/*')
-})
-
-gulp.task('watch', () => {
-  gulp.watch(['./src/assets/styles/**/*'], ['styles'])
-  gulp.watch(['./src/assets/scripts/**/*'], ['scripts'])
-  gulp.watch(['./src/assets/images/**/*'], ['images'])
-  gulp.watch(['./src/assets/svg/**/*'], ['svg'])
-  gulp.watch(['./src/**/*.pug'], ['pug'])
-})
-
-gulp.task('browser-sync', () => {
+gulp.task('server', () => {
   browserSync.init({
-    server: {
-      baseDir: './dist/'
-    }
-  })
-})
+    server: 'dist',
+  });
 
-gulp.task('pages', () => {
-  return gulp
-    .src('./dist/**/*')
-    .pipe(ghPages())
-})
+  gulp.watch('./src/styles/**/*', gulp.series(['styles']));
+  gulp.watch('./src/scripts/**/*', gulp.series(['scripts']));
+  gulp.watch('./src/images/**/*', gulp.series(['images']));
+  gulp.watch('./src/vectors/**/*', gulp.series(['vectors']));
+  gulp.watch('./src/pages/**/*', gulp.series(['pages']));
+});
 
-gulp.task('build', ['clear'], () => {
-  gulp.start('styles', 'pug', 'scripts', 'images', 'svg')
-})
+gulp.task(
+  'dev',
+  gulp.series(
+    gulp.parallel('styles', 'scripts', 'images', 'vectors'),
+    'pages',
+    'server'
+  )
+);
 
-gulp.task('default', ['build', 'watch', 'browser-sync'])
-gulp.task('deploy', ['build', 'pages'])
+gulp.task(
+  'build',
+  gulp.series(
+    'clear',
+    gulp.parallel('styles', 'scripts', 'images', 'vectors'),
+    'pages'
+  )
+);

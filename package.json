@@ -1,39 +1,45 @@
 {
   "name": "simple-boilerplate",
-  "version": "1.0.0",
-  "description": "A simple boilerplate with ES6, Gulp, Pug, Stylus and Browsersync",
+  "version": "2.0.0",
+  "description": "A simple boilerplate with Pug, Sass, ES6, Browsersync and Gulp",
   "main": "index.js",
   "repository": "+https://github.com/adeonir/simple-boilerplate.git",
   "keywords": [
-    "frontend boilerplate"
+    "frontend",
+    "boilerplate",
+    "pug",
+    "sass",
+    "es6",
+    "gulp",
+    "browsersync"
   ],
-  "author": "Adeonir Kohl <contato@adeonir.com> (https://adeonir.com)",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build --production"
+  },
+  "author": "Adeonir Kohl <adeonir@gmail.com>",
   "license": "MIT",
   "homepage": "https://gitlab.com/adeonir/simple-boilerplate#readme",
-  "dependencies": {
-    "senna": "^2.4.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "autoprefixer-stylus": "^0.14.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "browser-sync": "^2.18.13",
-    "gulp": "^3.9.1",
+    "cssnano": "^3.10.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.10.0",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^5.0.0",
     "gulp-babel": "^7.0.0",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-data": "^1.2.1",
-    "gulp-eslint": "^4.0.0",
-    "gulp-gh-pages": "^0.5.4",
+    "gulp-cssnano": "^2.1.3",
     "gulp-imagemin": "^3.3.0",
     "gulp-plumber": "^1.1.0",
-    "gulp-pug": "^3.3.0",
-    "gulp-pug-lint": "^0.1.6",
-    "gulp-stylint": "^4.0.0",
-    "gulp-stylus": "^2.6.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.0.1",
     "gulp-svgmin": "^1.2.4",
-    "gulp-uglify": "^3.0.0",
-    "jeet": "^7.2.0",
-    "kouto-swiss": "^1.1.0",
-    "rupture": "^0.6.2"
+    "gulp-terser": "^1.0.1"
   }
 }
