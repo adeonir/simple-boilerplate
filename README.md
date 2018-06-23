@@ -5,12 +5,10 @@ This project is a simple boilerplate structure for generating static websites us
 ## Stack
 
 - HTML Template Engine: [Pug](https://pugjs.org/)
-- CSS Preprocessor: [Stylus](http://stylus-lang.com/)
+- CSS Preprocessor: [Stylus](https://sass-lang.com/)
 - JS Transpiler: [Babel](https://babeljs.io/)
 - Task Runner: [Gulp](https://gulpjs.com/)
 - Browser Testing [Browsersync](https://www.browsersync.io/)
-
-It includes [Jeet](http://jeet.gs/) for grid system, [Kouto Swiss](http://kouto-swiss.io/) for animations, reset and a lot of great mixins and [Rupture](https://github.com/jenius/rupture) for responsive utilities. Also uses ITCSS for the CSS architecture. RSCSS for the CSS structure is recommended.
 
 ## Getting Started
 
@@ -34,7 +32,7 @@ When you are done, you can run `yarn build` to genereate the minified files.
 
 - `gulp`: run all tasks and initialize a server with live reload
 - `gulp styles`: compile sass files
-- `gulp scripts`: compile js files
+- `gulp scripts`: tranpile js files
 - `gulp images`: compress images files
 - `gulp vectors`: compress svg files
 - `gulp pages`: compile pug files
