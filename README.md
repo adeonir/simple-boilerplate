@@ -5,7 +5,7 @@ This project is a simple boilerplate structure for generating static websites us
 ## Stack
 
 - HTML Template Engine: [Pug](https://pugjs.org/)
-- CSS Preprocessor: [Stylus](https://sass-lang.com/)
+- CSS Preprocessor: [Sass](https://sass-lang.com/)
 - JS Transpiler: [Babel](https://babeljs.io/)
 - Task Runner: [Gulp](https://gulpjs.com/)
 - Browser Testing [Browsersync](https://www.browsersync.io/)
