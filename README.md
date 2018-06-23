@@ -1,16 +1,16 @@
 # Simple Boilerplate
 
-This project is a simple boilerplate structure for generating static websites using ES6, Pug, Stylus, Gulp and Browsersync.
+This project is a simple boilerplate structure for generating static websites using Pug, Stylus, Babel, Gulp and Browsersync.
 
 ## Stack
 
-- Task Runner: [Gulp](https://gulpjs.com/)
 - HTML Template Engine: [Pug](https://pugjs.org/)
 - CSS Preprocessor: [Stylus](http://stylus-lang.com/)
 - JS Transpiler: [Babel](https://babeljs.io/)
+- Task Runner: [Gulp](https://gulpjs.com/)
 - Browser Testing [Browsersync](https://www.browsersync.io/)
 
-It uses [Jeet](http://jeet.gs/) for grid system, [Kouto Swiss](http://kouto-swiss.io/) for animations, reset and a lot of great mixins and [Rupture](https://github.com/jenius/rupture) for responsive utilities. Also uses ITCSS for the CSS architecture. RSCSS for the CSS structure is recommended.
+It includes [Jeet](http://jeet.gs/) for grid system, [Kouto Swiss](http://kouto-swiss.io/) for animations, reset and a lot of great mixins and [Rupture](https://github.com/jenius/rupture) for responsive utilities. Also uses ITCSS for the CSS architecture. RSCSS for the CSS structure is recommended.
 
 ## Getting Started
 
@@ -27,35 +27,44 @@ $ cd simple-boilerplate
 $ yarn install
 ```
 
-Now you are ready to start.
+Now you are ready, just run `yarn dev` to start a dev server.
+When you are done, you can run `yarn build` to genereate the minified files.
+
+### Gulp Tasks
+
+- `gulp`: run all tasks and initialize a server with live reload
+- `gulp styles`: compile sass files
+- `gulp scripts`: compile js files
+- `gulp images`: compress images files
+- `gulp vectors`: compress svg files
+- `gulp pages`: compile pug files
+- `gulp server`: inicialize a server
+- `gulp clear`: clear the dist folder
+- `gulp build`: generate the dist folder
 
 ## Folders Structure
+
 ```sh
 .
-├── dist
 ├── src
-│   ├── assets
-│   │   ├── images
-│   │   │   └── favicon.png
-│   │   ├── scripts
-│   │   │   └── script.js
-│   │   ├── styles
-│   │   │   ├── settings/*.styl
-│   │   │   ├── tools/*.styl
-│   │   │   ├── generic/*.styl
-│   │   │   ├── elements/*.styl
-│   │   │   ├── objects/*.styl
-│   │   │   ├── components/*.styl
-│   │   │   ├── trumps/*.styl
-│   │   │   └── style.styl
-│   │   └── svg
-│   │   │   └── simple.svg
-│   ├── layouts
-│   │   ├── default.pug
-│   ├── partials
-│   │   ├── footer.pug
-│   │   └── header.pug
-│   └── index.pug
+│   ├── images
+│   │   └── favicon.png
+│   ├── pages
+│   │   ├── layouts
+│   │   │   └── default.pug
+│   │   ├── partials
+│   │   │   ├── footer.pug
+│   │   │   ├── header.pug
+│   │   │   └── main.pug
+│   │   └── index.pug
+│   ├── scripts
+│   │   ├── hello.js
+│   │   └── script.js
+│   ├── styles
+│   │   └── style.sass
+│   └── vectors
+│       └── simple.svg
+├── .babelrc
 ├── .editorconfig
 ├── .eslintrc
 ├── .gitignore
@@ -68,20 +77,7 @@ Now you are ready to start.
 
 ### Code Standards
 
-This project uses [Eslint](https://eslint.org/) and [JavaScript Standart Style](https://standardjs.com/).
-
-### Gulp Tasks
-
-- `gulp`: run all tasks and initialize a server for changes
-- `gulp styles`: compile stylus files
-- `gulp pug`: compile pug files
-- `gulp scripts`: execute js files
-- `gulp images`: compress images files
-- `gulp svg`: compress svg files
-- `gulp browser-sync`: inicialize a server
-- `gulp clear`: clear the dist folder
-- `gulp build`: run all files and generate the dist folder
-- `gulp deploy`: run all tasks and deploy files to gh-pages
+This project uses [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
 
 ### Thanks
 
