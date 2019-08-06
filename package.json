@@ -1,6 +1,6 @@
 {
   "name": "simple-boilerplate",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A simple boilerplate with Pug, Sass, ES6, Browsersync and Gulp",
   "main": "index.js",
   "repository": "+https://github.com/adeonir/simple-boilerplate.git",
@@ -25,12 +25,14 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.0",
-    "browser-sync": "^2.26.5",
+    "browser-sync": "^2.26.7",
     "cssnano": "^4.1.10",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-import": "^2.17.3",
+    "del": "^5.0.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-babel": "^8.0.0",
@@ -40,6 +42,7 @@
     "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.0.2",
     "gulp-svgmin": "^2.2.0",
-    "gulp-terser": "^1.2.0"
+    "gulp-terser": "^1.2.0",
+    "prettier": "^1.18.2"
   }
 }
