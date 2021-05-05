@@ -17,16 +17,22 @@ This project is a simple boilerplate structure for generating static websites us
 First of all, you need [NodeJS](https://nodejs.org/), [GulpJS](https://gulpjs.com/) and [Yarn](https://yarnpkg.com/) to install the dependencies and run this project.
 
 ```sh
-# clone this repository
-$ git clone git@github.com:adeonir/simple-boilerplate.git
+# after clone this repository, enter the directory
 $ cd simple-boilerplate
 
 # install dependencies
-$ yarn install
+$ yarn
 ```
 
 Now you are ready, just run `yarn dev` to start a dev server.
 When you are done, you can run `yarn build` to genereate the minified files.
+
+### Scripts
+
+- `dev`: run the developer server
+- `build`: run linters and build the production build
+- `eslint`: run js and pug files linter
+- `stylelint`: run scss files linter
 
 ### Gulp Tasks
 
@@ -59,13 +65,14 @@ When you are done, you can run `yarn build` to genereate the minified files.
 │   │   ├── hello.js
 │   │   └── script.js
 │   ├── styles
-│   │   └── style.sass
+│   │   └── style.scss
 │   └── vectors
 │       └── simple.svg
-├── .babelrc
 ├── .editorconfig
 ├── .eslintrc
 ├── .gitignore
+├── .prettierrc
+├── .stylelintrc
 ├── gulpfile.js
 ├── LICENSE
 ├── package.json
@@ -75,7 +82,7 @@ When you are done, you can run `yarn build` to genereate the minified files.
 
 ### Code Standards
 
-This project uses [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript).
+This project uses [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript) (but without the semicolons xD)
 
 ### Thanks
 

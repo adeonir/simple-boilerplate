@@ -14,8 +14,8 @@
     "browsersync"
   ],
   "scripts": {
-    "dev": "gulp dev",
-    "build": "gulp build --production",
+    "dev": "yarn gulp dev",
+    "build": "yarn estlint && yarn stylelint && yarn gulp build --production",
     "eslint": "eslint --ext .js,.pug --fix",
     "stylelint": "stylelint 'src/**/*.scss' --fix"
   },
