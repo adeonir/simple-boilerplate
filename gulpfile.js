@@ -1,6 +1,5 @@
 const gulp = require('gulp')
-const change = require('gulp-change')
-const sass = require('gulp-sass')
+const sass = require('gulp-dart-sass')
 const autoprefixer = require('gulp-autoprefixer')
 const cssnano = require('gulp-cssnano')
 const pug = require('gulp-pug')
@@ -16,7 +15,6 @@ gulp.task('clear', () => del('dist'))
 gulp.task('styles', () =>
   gulp
     .src('src/styles/**/*')
-    .pipe(change('dist/css'))
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(cssnano())
@@ -27,7 +25,6 @@ gulp.task('styles', () =>
 gulp.task('scripts', () =>
   gulp
     .src('src/scripts/**/*')
-    .pipe(change('dist/js'))
     .pipe(babel())
     .pipe(minify())
     .pipe(gulp.dest('dist/js'))
@@ -37,7 +34,6 @@ gulp.task('scripts', () =>
 gulp.task('images', () =>
   gulp
     .src('src/images/**/*')
-    .pipe(change('dist/img'))
     .pipe(imagemin())
     .pipe(gulp.dest('dist/img'))
     .pipe(browserSync.stream())
@@ -46,7 +42,6 @@ gulp.task('images', () =>
 gulp.task('vectors', () =>
   gulp
     .src('src/vectors/**/*')
-    .pipe(change('dist/svg'))
     .pipe(svgmin())
     .pipe(gulp.dest('dist/svg/'))
 )
@@ -54,7 +49,6 @@ gulp.task('vectors', () =>
 gulp.task('pages', () =>
   gulp
     .src('src/pages/*.pug')
-    .pipe(change('dist'))
     .pipe(pug())
     .pipe(gulp.dest('dist'))
     .pipe(browserSync.stream())
@@ -63,8 +57,8 @@ gulp.task('pages', () =>
 gulp.task('server', () => {
   browserSync.init({
     server: {
-      baseDir: 'dist'
-    }
+      baseDir: 'dist',
+    },
   })
 
   gulp.watch('src/styles/**/*', gulp.series(['styles']))
